@@ -1,0 +1,26 @@
+SUMMARY:
+Trevor Turk and I got the idea over a beer the last Friday. I asked him suggestion on how to deal with the frustration with the current github dashboard where all information about projects and people are mixed together without any filter to help you out.
+
+NAMES:
+- better-dash
+- bdash (taken)
+- gdash (taken)
+- better-github-dash
+- bgd
+
+DETAILS:
+The app will ask for credentials to access your dashboard rss-feed. The app will poll (or being pushed) the rss feed using your credential token and parse the result. It will then store history data using the single activity item URL as main id for the entry. Sensible data like your private projects actions won't be published (of course).
+
+ARCHITECTURAL OPTIONS:
+- Self-deploying heroku project with a specific name based on your user account. If you gem install bgd it will create the project on heroku as part of the install. Requirements:
+  + heroku account (should be ok for the target user we are thinking of)
+  - not more than 5Mb of data storage for the free basic account (postgres and redis)
+  - we can't use redis because it requires the credit card number even for a free account
+  + nice self-contained application created for each user
+- A single heroku project that you can access with something like http://bgd.heroku.com/username and will ask then for authorization redirecting you to your statistical data.
+  + no heroku account required, only your credentials
+  - the relational based free storage can be filled pretty fast if all users are using the same database
+  - we can use redis, but we only have a 5MB account which is eventually not enough
+  - need to find a way to pay the 25$ of the 100Mb Redis instance (at least) but we could wait to see if it really goes that popular and then ask for donation should be enough (hope)
+
+FIRST STEPS:
