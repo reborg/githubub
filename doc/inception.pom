@@ -23,4 +23,10 @@ ARCHITECTURAL OPTIONS:
   - we can use redis, but we only have a 5MB account which is eventually not enough
   - need to find a way to pay the 25$ of the 100Mb Redis instance (at least) but we could wait to see if it really goes that popular and then ask for donation should be enough (hope)
 
-FIRST STEPS:
+OVERVIEW:
+- Resulting app is an independent heroku deployed app based on the git username of the user. Still deciding if the heroku app will be created under the same account or require the user to have an heroku account and credentials.
+- sudo gem install bgd will create a rails app or modify an existing stub and deploy this app on heroku. The final user doesn't need to see the Rails app which can be created in a tmp dir.
+- the installation will attemp to grab the github user token from git config github.token and ask for the token otherwise.
+- the install process also creates a http://superfeedr.com/ account and request a polling of the private user's feed from github using the token. The http://superfeedr.com/ is instructed to push the feed data to the app deployed on heroku.
+- the rails app receives the push and proceed to parse the feed, then apply filters and store relevant information in the local database
+- when the app is accessed through the web, it shows an aggregation of some kind (TBD) of the relevand part of the dashboard feed. Possibily a single page structure with clear boxes or chart about the social network.
