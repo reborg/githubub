@@ -1,13 +1,6 @@
 SUMMARY:
 Trevor Turk and I got the idea over a beer the last Friday. I asked him suggestion on how to deal with the frustration with the current github dashboard where all information about projects and people are mixed together without any filter to help you out.
 
-NAMES:
-- better-dash
-- bdash (taken)
-- gdash (taken)
-- better-github-dash
-- bgd
-
 DETAILS:
 The app will ask for credentials to access your dashboard rss-feed. The app will poll (or being pushed) the rss feed using your credential token and parse the result. It will then store history data using the single activity item URL as main id for the entry. Sensible data like your private projects actions won't be published (of course).
 
@@ -18,15 +11,14 @@ ARCHITECTURAL OPTIONS:
   - we can't use redis because it requires the credit card number even for a free account
   + nice self-contained application created for each user
 - A single heroku project that you can access with something like http://bgd.heroku.com/username and will ask then for authorization redirecting you to your statistical data.
-  + no heroku account required, only your credentials
+  + no heroku account required, only your credentials with omniauth directly fom github
   - the relational based free storage can be filled pretty fast if all users are using the same database
   - we can use redis, but we only have a 5MB account which is eventually not enough
   - need to find a way to pay the 25$ of the 100Mb Redis instance (at least) but we could wait to see if it really goes that popular and then ask for donation should be enough (hope)
 
-OVERVIEW:
-- Resulting app is an independent heroku deployed app based on the git username of the user. Still deciding if the heroku app will be created under the same account or require the user to have an heroku account and credentials.
-- sudo gem install bgd will create a rails app or modify an existing stub and deploy this app on heroku. The final user doesn't need to see the Rails app which can be created in a tmp dir.
-- the installation will attemp to grab the github user token from git config github.token and ask for the token otherwise.
-- the install process also creates a http://superfeedr.com/ account and request a polling of the private user's feed from github using the token. The http://superfeedr.com/ is instructed to push the feed data to the app deployed on heroku.
-- the rails app receives the push and proceed to parse the feed, then apply filters and store relevant information in the local database
-- when the app is accessed through the web, it shows an aggregation of some kind (TBD) of the relevand part of the dashboard feed. Possibily a single page structure with clear boxes or chart about the social network.
+OVERVIEW SO FAR:
+- rails 3 app, devise omniauth, superfeedr ruby wrapper, deployed on heroku as githubub.heroku.com
+- on first access, authenticating with github via omniauth
+- on first access, creating new superfeedr subcription for private user github feed using api token
+- to grab the first set of data, one time connection to github feed to populate /dashboard page
+- superfeedr will be pushing subsequent github dashboard private feed updates to githubub /update/<token>

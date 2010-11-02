@@ -1,0 +1,21 @@
+#!/Applications/TaskPaper.app/Contents/MacOS/TaskPaper
+#:set syntax=taskpaper vim ftw
+
+CURRENT:
+- @githubub @setup change name of the project to githubub 1
+- @githubub @setup add omniauth support for devise (reinstall correct devise dep) 4
+- @githubub @setup heroku deploy 2
+- @githubub @auth should authenticate user using github credentials and redirect to their dashboard 10
+- @githubub @feedr creates a new subscription for user's dashboard rss feed on first login 12
+- @githubub @feedr one time only pre-populate db before first push from feedr using normal RSS::Atom call 10
+- @githubub @feedr should parse new feedr pushed data and add to database 10
+- @githubub @dashboard page should list only default relevant updates 14
+- @githubub @dashboard filter page allow fine grained selection of what should be displayed in the dashboard 12
+
+LEARN:
+- @githubub @learn devise + omniauth rails casts http://railscasts.com/episodes/235-omniauth-part-1 3
+- @githubub @spike http://github.com/superfeedr/superfeedr-ruby 3
+- @learn is the github api token somehow available through the apis? 2
+
+NEXT:
+- more aggregation and statistical data to be defined
