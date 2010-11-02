@@ -1,5 +1,6 @@
 Bgd::Application.routes.draw do
   devise_for :users
+  match '/auth/callback' => 'home#authenticate'
 
   get "home/index"
 

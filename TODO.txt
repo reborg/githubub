@@ -2,7 +2,6 @@
 #:set syntax=taskpaper vim ftw
 
 CURRENT:
-- @githubub @setup change name of the project to githubub 1
 - @githubub @setup add omniauth support for devise (reinstall correct devise dep) 4
 - @githubub @setup heroku deploy 2
 - @githubub @auth should authenticate user using github credentials and redirect to their dashboard 10
