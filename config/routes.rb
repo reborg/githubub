@@ -1,5 +1,7 @@
 Bgd::Application.routes.draw do
 
+  get "dashboard/show"
+
   devise_for :users do
     get '/login' => 'devise/sessions#new'
     post '/login' => 'devise/sessions#create'
