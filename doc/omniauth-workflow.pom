@@ -1,0 +1,15 @@
+- the main way the user will login will be through their github credentials that I know they have considering the goal of Githubub.
+- so the user is first presented with a simple page where they are asked to login through their github account
+- I'm not interest in providing classic authentication with email/pwd because having a github account is a requirement for using githubub
+- they can logout of course
+- pushing the big github button will bring them to their account and then back following the callback.
+- at that point I can retrieve the user token and grab the rss feed (first time)
+- second I subscribe the feed to superfeedr for following updates
+
+- when the user first land on the app, I want to show the login screen, I'd probably leave home/index for the dashboard data and protected for now.
+- I should create another controller which is not the "home" controller that doesn't have a lot of meaning. Since I'm going to show the user github feed, I can call it dashboard_controller with a single index view which rapresents the only aggregation available now.
+- dashboard controller is protected by default and devise redirect to the sign_up page when the user is not in the session already.
+- The page contains the big github button explaning you're going to be redirected 
+- back fom github you're going straight to your dashboard
+- maybe a user could have many dashboards? they differ maybe. I don't know, to be defined later.
+- remain to understand how to tell devise I want my page displayed instead of the signup one.

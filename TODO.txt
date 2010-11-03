@@ -2,8 +2,12 @@
 #:set syntax=taskpaper vim ftw
 
 CURRENT:
-- @githubub @setup add omniauth support for devise (reinstall correct devise dep) 4
+- @githubub @auth make it work exactly as the railscast will figure out how to remove stuff later 4
+- @githubub @auth devise redirect to omniauth only page for user login 3
+- @githubub @auth new dashboard controller as landing page after auth 2
+- @githubub @auth github login page layout 4
 - @githubub @setup heroku deploy 2
+- @githubub @setup just a little bit of stlye dr nic stylizer 4
 - @githubub @auth should authenticate user using github credentials and redirect to their dashboard 10
 - @githubub @feedr creates a new subscription for user's dashboard rss feed on first login 12
 - @githubub @feedr one time only pre-populate db before first push from feedr using normal RSS::Atom call 10
