@@ -1,6 +1,12 @@
 Bgd::Application.routes.draw do
-  devise_for :users
-  match '/auth/callback' => 'home#authenticate'
+
+  devise_for :users do
+    get '/login' => 'devise/sessions#new'
+    post '/login' => 'devise/sessions#create'
+    get '/logout' => 'devise/sessions#destroy'
+  end
+
+  match '/auth/:provider/callback' => 'home#authenticate'
 
   get "home/index"
 
