@@ -1,6 +1,14 @@
 Bgd::Application.routes.draw do
-  devise_for :users
-  match '/auth/callback' => 'home#authenticate'
+
+  get "dashboard/show"
+
+  devise_for :users do
+    get '/login' => 'devise/sessions#new'
+    post '/login' => 'devise/sessions#create'
+    get '/logout' => 'devise/sessions#destroy'
+  end
+
+  match '/auth/:provider/callback' => 'home#authenticate'
 
   get "home/index"
 
@@ -53,7 +61,7 @@ Bgd::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "home#index"
+  root :to => "dashboard#show"
 
   # See how all your routes lay out with "rake routes"
 
