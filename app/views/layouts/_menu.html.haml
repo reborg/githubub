@@ -1,12 +1,5 @@
 %a{ :href => "#" }
-  home
+  dashboard
 %a{ :href => "#" }
   about
-%a{ :href => "#" }
-  forum
-%a{ :href => "#" }
-  design
-%a{ :href => "#" }
-  info
-%a{ :href => "#" }
-  contact
+= link_to "logout", destroy_user_session_path

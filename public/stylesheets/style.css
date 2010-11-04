@@ -37,17 +37,17 @@ div.header {
     text-align: right;
     padding-right: 5px; }
 div.nav {
-  padding-top: 149px;
-  padding-left: 5px;
+  padding-top: 20px;
+  padding-left: 20px;
   text-align: left; }
 
 .nav a {
-  color: #FFF0E6;
+  color: #4183C6;
   text-decoration: none;
   margin-right: 10px;
   border-top: 3px solid #333333; }
   .nav a:hover, .nav a:visited {
-    color: #FFF0E6;
+    color: #000000;
     text-decoration: none;
     margin-right: 10px;
     border-top: 3px solid #333333; }

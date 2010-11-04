@@ -12,8 +12,8 @@
     .header
       %h1
         Githubub
-      .nav
-        = yield(:menu) || render_or_default('menu')
     .container
+      .nav
+        = render(:partial => "layouts/menu")
       .content
         = yield
